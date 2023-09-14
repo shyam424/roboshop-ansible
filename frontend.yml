@@ -2,8 +2,8 @@
    hosts: all
    become: true
    tasks:
-     -  name: Insall Nginx
-        system.builtin.yum:
+     -  name: Install Nginx
+        ansible.builtin.yum:
            name: nginx
            state: installed
 
