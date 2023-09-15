@@ -3,6 +3,7 @@
    become:  yes
    vars:
      component:  user
+     schema: true
 
    tasks:
      -  name : nodejs setup
