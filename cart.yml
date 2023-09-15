@@ -2,7 +2,7 @@
    hosts:  all
    become:  yes
    vars:
-     component:  user
+     component:  cart
 
    tasks:
      -  name : nodejs setup
