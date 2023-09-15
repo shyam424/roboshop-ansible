@@ -18,21 +18,21 @@
 
      -  name:  replace listen address    /etc/redis.conf
         ansible.builtin.replace:
-            path:  /etc/redis.conf
-            regexp:  '127.0.0.1'
-            replace:  '0.0.0.0'
+          path:  /etc/redis.conf
+          regexp:  '127.0.0.1'
+          replace:  '0.0.0.0'
 
-     - name: replace listen address    /etc/redis/redis.conf
-       ansible.builtin.replace:
-         path: /etc/redis/redis.conf
-         regexp: '127.0.0.1'
-         replace: '0.0.0.0'
+     -  name: replace listen address    /etc/redis/redis.conf
+        ansible.builtin.replace:
+          path: /etc/redis/redis.conf
+          regexp: '127.0.0.1'
+          replace: '0.0.0.0'
 
 
-     - name:  start redis
-       ansible.builtin.systemd:
-           name:  redis
-           state:  restarted
-           enabled:  yes
+     -  name:  start redis
+        ansible.builtin.systemd:
+          name:  redis
+          state:  restarted
+          enabled:  yes
 
 
