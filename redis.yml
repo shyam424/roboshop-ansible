@@ -11,12 +11,12 @@
 
 
      -  name:  enable redis module
-        ansible.builtin.shell: yum enable redis:remi-6.2
+        ansible.builtin.shell: yum module enable redis:remi-6.2
 
      -  name: install redis
         ansible.builtin.yum:
             name:  redis
-            state:  started
+            state:  installed
 
      -  name:  replace listen address    /etc/redis.conf
         ansible.builtin.replace:
