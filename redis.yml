@@ -19,13 +19,13 @@
      -  name:  replace listen address    /etc/redis.conf
         ansible.builtin.replace:
             path:  /etc/redis.conf
-            regex:  '127.0.0.1'
+            regexp:  '127.0.0.1'
             replace:  '0.0.0.0'
 
      - name: replace listen address    /etc/redis/redis.conf
        ansible.builtin.replace:
          path: /etc/redis/redis.conf
-         regex: '127.0.0.1'
+         regexp: '127.0.0.1'
          replace: '0.0.0.0'
 
 
