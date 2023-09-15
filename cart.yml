@@ -1,6 +1,6 @@
 -  name: cart setup
    hosts:  all
-   become:  yes
+   become:  true
    vars:
      component:  cart
 
