@@ -1,6 +1,6 @@
 -  name: install maven
    ansible.builtin.yum:
-     name:  mavenn
+     name:  maven
      state:  installed
 
 -  name: app pre-requisites
