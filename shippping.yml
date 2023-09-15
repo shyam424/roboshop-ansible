@@ -1,4 +1,4 @@
--  name: Install maven
+-  name: install maven
    ansible.builtin.yum:
      name: maven
      state: installed
