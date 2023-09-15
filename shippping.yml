@@ -1,6 +1,8 @@
 -  name: Intsall shipping setup
    hosts: all
    become: true
+   vars:
+     component: shipping
    tasks:
       -  name: install maven
          ansible.builtin.yum:
