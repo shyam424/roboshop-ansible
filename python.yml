@@ -1,7 +1,7 @@
 -  name: Install python
    ansible.builtin.yum:
      name:
-       - python36
+       -  python36
        -  gcc
        -  python3-devel
      state: Installed
@@ -11,6 +11,8 @@
 
 -  name: download python dependencies
    ansible.builtin.shell:  pip3.6 install -r requirements.txt
+   args:
+     chdir: /app
 
 -  name: systemD setup
    ansible.builtin.import_tasks:  systemd-setup.yml
