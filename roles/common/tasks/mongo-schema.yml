@@ -15,4 +15,4 @@
 ##** if you are running ansible separately then un-comment the above and comment the below and then run,but if you are running the "roboshop-vpc"
 ##** then comment the above an un-comment the below , only diffrence is name changed to "component-dev"
 
-   ansible.builtin.shell: mongo --host mongodb-dev.devopspractice23.online </app/schema/{{component}}.js
+   ansible.builtin.shell: mongo --ssl --host {{ lookup('amazon.aws.aws_ssm', 'docdb.{{env}}.endpoint', region='us-east-1') }}:27017 --sslCAFile global-bundle.pem --username docdbadmin --password roboshop1234 </app/schema/{{component}}.js
