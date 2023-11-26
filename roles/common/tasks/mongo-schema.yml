@@ -10,4 +10,9 @@
      state: installed
 
 -  name: load the schema
-   ansible.builtin.shell: mongo --host mongodb.devopspractice23.online </app/schema/{{component}}.js
+#   ansible.builtin.shell: mongo --host mongodb.devopspractice23.online </app/schema/{{component}}.js
+
+##** if you are running ansible separately then un-comment the above and comment the below and then run,but if you are running the "roboshop-vpc"
+##** then comment the above an un-comment the below , only diffrence is name changed to "component-dev"
+
+   ansible.builtin.shell: mongo --host mongodb-dev.devopspractice23.online </app/schema/{{component}}.js
