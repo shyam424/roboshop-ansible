@@ -9,10 +9,15 @@
      name: mongodb-org-shell
      state: installed
 
+-  name: Download DocumentDB pem file
+   ansible.builtin.get_url:
+     url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+     dest:  /app/rds-combined-ca-bundle.pem
+
 -  name: load the schema
 #   ansible.builtin.shell: mongo --host mongodb.devopspractice23.online </app/schema/{{component}}.js
 
 ##** if you are running ansible separately then un-comment the above and comment the below and then run,but if you are running the "roboshop-vpc"
 ##** then comment the above an un-comment the below , only diffrence is name changed to "component-dev"
 
-   ansible.builtin.shell: mongo --ssl --host {{ lookup('amazon.aws.aws_ssm', 'docdb.{{env}}.endpoint', region='us-east-1') }}:27017 --sslCAFile global-bundle.pem --username docdbadmin --password roboshop1234 </app/schema/{{component}}.js
+   ansible.builtin.shell: mongo --ssl --host {{ lookup('amazon.aws.aws_ssm', 'docdb.{{env}}.endpoint', region='us-east-1') }}:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username docdbadmin --password roboshop1234 </app/schema/{{component}}.js
