@@ -4,12 +4,12 @@ Description = Catalogue Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-#Environment=MONGO_URL="mongodb://mongodb.devopspractice23.online:27017/catalogue"
+Environment=MONGO_URL="mongodb://mongodb.devopspractice23.online:27017/catalogue"
 
 ##** if you are running ansible separately then un-comment the above and comment the below and then run,but if you are running the "roboshop-vpc"
 ##** then comment the above an un-comment the below , only diffrence is name changed to "component-dev"
 
-Environment=MONGO_URL="mongodb://{{ lookup('amazon.aws.aws_ssm', 'docdb.{{env}}.endpoint', region='us-east-1') }}:27017/catalogue"
+#Environment=MONGO_URL="mongodb://{{ lookup('amazon.aws.aws_ssm', 'docdb.{{env}}.endpoint', region='us-east-1') }}:27017/catalogue"
 #Environment=MONGO_URL="mongodb://mongodb-dev.devopspractice23.online:27017/catalogue"
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=catalogue
